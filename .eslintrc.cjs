@@ -28,6 +28,8 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'arrow-body-style': 'off',
-    'prefer-arrow-callback': 'off'
+    'prefer-arrow-callback': 'off',
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-explicit-any': ['off'] // 把他加上重启项目就行了
   }
 }
