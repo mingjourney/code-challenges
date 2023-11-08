@@ -1,4 +1,4 @@
-# LeetCode 刷题项目
+# 前端学习 项目
 
 这是一个使用 Vite、React、TypeScript、ESLint、Prettier、Husky、Commitlint 和 Ant Design 构建的项目，旨在coding并记录代码问题。
 
