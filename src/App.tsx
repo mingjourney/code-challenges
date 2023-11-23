@@ -1,12 +1,8 @@
-import { CodingBoard } from './pages/CodingBoard'
-// import F1 from './pages/F1'
-
+import { useRoutes } from 'react-router-dom'
+import router from './router'
 function App() {
-  return (
-    <div className="App">
-      <CodingBoard />
-    </div>
-  )
+  const outLet = useRoutes(router)
+  return <div className="App">{outLet}</div>
 }
 
 export default App

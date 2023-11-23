@@ -1,5 +1,6 @@
 import * as algorithms from '../algorithms/algorithms'
 import CardComponent from '../components/CardComponent'
+import { UpCircleOutlined } from '@ant-design/icons'
 export const CodingBoard = () => {
   const input1 = [1, 2, 3, 4, 6, 2, 5, 1]
   const target1 = 5
@@ -11,6 +12,7 @@ export const CodingBoard = () => {
   return (
     <div style={{ padding: '10px' }}>
       <h4>11.6-11.13</h4>
+      <UpCircleOutlined style={{ fontSize: '20px' }} />
       <CardComponent
         title="1-twoSum"
         data={algorithms.twoSum(input1, target1)}
