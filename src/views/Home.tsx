@@ -5,7 +5,7 @@ import {
   UserOutlined
 } from '@ant-design/icons'
 import type { MenuProps } from 'antd'
-import { Breadcrumb, Layout, Menu, theme } from 'antd'
+import { Breadcrumb, Layout, Menu, theme, Card, Badge } from 'antd'
 
 const { Header, Content, Sider } = Layout
 // console.log([1, 2, 4, 5, 6].shift())
@@ -91,7 +91,16 @@ const App: React.FC = () => {
               background: colorBgContainer
             }}
           >
-            Content
+            <Card
+              title="王某某"
+              bordered={false}
+              style={{ width: 400, height: 200 }}
+            >
+              <p>听讲时间42分钟 未开听筒 </p>
+              <p>
+                <Badge status="success" text="Success" /> - 认真
+              </p>
+            </Card>
           </Content>
         </Layout>
       </Layout>
