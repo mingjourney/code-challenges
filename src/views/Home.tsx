@@ -4,8 +4,9 @@ import {
   NotificationOutlined,
   UserOutlined
 } from '@ant-design/icons'
+import CodingBoard from '../pages/CodingBoard'
 import type { MenuProps } from 'antd'
-import { Breadcrumb, Layout, Menu, theme, Card, Badge } from 'antd'
+import { Layout, Menu, theme } from 'antd'
 
 const { Header, Content, Sider } = Layout
 // console.log([1, 2, 4, 5, 6].shift())
@@ -78,11 +79,6 @@ const App: React.FC = () => {
           />
         </Sider>
         <Layout style={{ padding: '0 24px 24px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
           <Content
             style={{
               padding: 24,
@@ -91,16 +87,7 @@ const App: React.FC = () => {
               background: colorBgContainer
             }}
           >
-            <Card
-              title="王某某"
-              bordered={false}
-              style={{ width: 400, height: 200 }}
-            >
-              <p>听讲时间42分钟 未开听筒 </p>
-              <p>
-                <Badge status="success" text="Success" /> - 认真
-              </p>
-            </Card>
+            <CodingBoard />
           </Content>
         </Layout>
       </Layout>

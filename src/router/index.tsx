@@ -12,7 +12,7 @@ const withLoadingComponent = (comp: JSX.Element) => (
 const routes = [
   {
     path: '/',
-    element: withLoadingComponent(<OnlineThreeDClassroom />)
+    element: withLoadingComponent(<Home />)
   },
   {
     path: '/home',
