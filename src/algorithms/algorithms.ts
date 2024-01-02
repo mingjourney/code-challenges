@@ -256,3 +256,45 @@ export const findAnagrams = (s: string, p: string): number[] => {
   }
   return res
 }
+// 560.和为 K 的子数组 （巧）
+export const subarraySum = (nums: number[], k: number): number => {
+  const m = new Map<number, number>()
+  let count = 0
+  m.set(0, 1)
+  let sum = 0
+  for (const num of nums) {
+    sum += num
+    if (m.has(sum - k)) {
+      count += m.get(sum - k)!
+    }
+    if (m.has(sum)) {
+      m.set(sum, m.get(sum)! + 1)
+    } else {
+      m.set(sum, 1)
+    }
+  }
+  return count
+}
+// 239.滑动窗口最大值1.3 -> 1.7可刷
+export const maxSlidingWindow = (nums: number[], k: number): number[] => {
+  const res: number[] = [],
+    q: number[] = []
+  for (let i = 0; i < k; i++) {
+    while (q.length && nums[i] >= nums[q[q.length - 1]]) {
+      q.pop()
+    }
+    q.push(i)
+  }
+  res.push(nums[q[0]])
+  for (let i = k; i < nums.length; i++) {
+    while (q.length > 0 && nums[q[q.length - 1]] <= nums[i]) {
+      q.pop()
+    }
+    q.push(i)
+    if (q[0] <= i - k) {
+      q.shift()
+    }
+    res.push(nums[q[0]])
+  }
+  return res
+}

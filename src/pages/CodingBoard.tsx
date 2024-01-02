@@ -13,7 +13,10 @@ const CodingBoard = () => {
   const input3 = 'abcabcbb'
   const input438_s = 'cbaebabacd'
   const input438_p = 'abc'
-
+  const input560_nums = [1, 2, 3]
+  const input560_k = 3
+  const input239_nums = [1, 3, -1, -3, 5, 3, 6, 7]
+  const input239_k = 3
   // const input15 = [-1, 0, 1, 2, -1, -4]
   return (
     <div style={{ padding: '10px' }}>
@@ -66,6 +69,14 @@ const CodingBoard = () => {
       <CardComponent
         title="438-findAnagrams"
         data={algorithms.findAnagrams(input438_s, input438_p)}
+      />
+      <CardComponent
+        title="560-subarraySum"
+        data={algorithms.subarraySum(input560_nums, input560_k)}
+      />
+      <CardComponent
+        title="239-maxSlidingWindow"
+        data={algorithms.maxSlidingWindow(input239_nums, input239_k)}
       />
     </div>
   )
