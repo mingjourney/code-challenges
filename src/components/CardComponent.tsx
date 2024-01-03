@@ -11,7 +11,7 @@ const CardComponent: React.FC<CardComponentProps> = ({ title, data }) => {
   return (
     <Space>
       <Card size="small" title={title} style={{ margin: '0px' }}>
-        <div> 结果：{data.toString()}</div>
+        <div> 结果：{data ? data.toString() : 'void'}</div>
       </Card>
     </Space>
   )

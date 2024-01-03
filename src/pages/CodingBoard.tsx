@@ -17,6 +17,17 @@ const CodingBoard = () => {
   const input560_k = 3
   const input239_nums = [1, 3, -1, -3, 5, 3, 6, 7]
   const input239_k = 3
+  const input76_s = 'ADOBECODEBANC'
+  const input76_t = 'ABC'
+  const input53 = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+  const input56 = [
+    [1, 3],
+    [2, 6],
+    [8, 10],
+    [15, 18]
+  ]
+  const input189_nums = [1, 2, 3, 4, 5, 6, 7]
+  const input189_k = 3
   // const input15 = [-1, 0, 1, 2, -1, -4]
   return (
     <div style={{ padding: '10px' }}>
@@ -74,9 +85,27 @@ const CodingBoard = () => {
         title="560-subarraySum"
         data={algorithms.subarraySum(input560_nums, input560_k)}
       />
+      <h4>1.1-1.7</h4>
       <CardComponent
-        title="239-maxSlidingWindow"
+        title="239-maxSlidingWindow(1.3 -> 1.7)"
         data={algorithms.maxSlidingWindow(input239_nums, input239_k)}
+      />
+      <CardComponent
+        title="560-subarraySum-2(1.3 -> 1.7)"
+        data={algorithms.subarraySum2(input560_nums, input560_k)}
+      />
+      <CardComponent
+        title="76-minWindow(待解决)"
+        data={algorithms.minWindow(input76_s, input76_t)}
+      />
+      <CardComponent
+        title="53-minWindow(1.3 -> 1.7)"
+        data={algorithms.maxSubArray(input53)}
+      />
+      <CardComponent title="56-merge" data={algorithms.merge(input56)} />
+      <CardComponent
+        title="189-rotate"
+        data={algorithms.rotate(input189_nums, input189_k)}
       />
     </div>
   )
