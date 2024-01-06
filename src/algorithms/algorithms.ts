@@ -397,5 +397,38 @@ export const rotate = (nums: number[], k: number): void => {
   for (let i = 0; i < nums.length; i++) {
     nums[i] = newArr[i]
   }
-  console.log('nums', nums)
+}
+
+// 189. 轮转数组 优化
+const reverse = (nums: number[], start: number, end: number) => {
+  while (start < end) {
+    const temp = nums[start]
+    nums[start] = nums[end]
+    nums[end] = temp
+    start++
+    end--
+  }
+}
+export const rotate1 = (nums: number[], k: number): void => {
+  const endIndex = nums.length - 1
+  k %= nums.length
+  reverse(nums, 0, endIndex)
+  reverse(nums, 0, k - 1)
+  reverse(nums, k, endIndex)
+}
+// 238. 除自身以外数组的乘积
+export const productExceptSelf = (nums: number[]): number[] => {
+  const res = Array(nums.length).fill(1)
+  let k = 1
+  for (let i = 0; i < nums.length; i++) {
+    res[i] *= k
+    k *= nums[i]
+  }
+  k = 1
+  for (let i = nums.length - 1; i >= 0; i--) {
+    res[i] *= k
+    k *= nums[i]
+  }
+  console.log('res', res)
+  return res
 }

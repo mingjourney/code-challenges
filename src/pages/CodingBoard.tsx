@@ -28,7 +28,7 @@ const CodingBoard = () => {
   ]
   const input189_nums = [1, 2, 3, 4, 5, 6, 7]
   const input189_k = 3
-  // const input15 = [-1, 0, 1, 2, -1, -4]
+  const input238 = [1, 2, 3, 4]
   return (
     <div style={{ padding: '10px' }}>
       <h4>11.6-11.13</h4>
@@ -106,6 +106,14 @@ const CodingBoard = () => {
       <CardComponent
         title="189-rotate"
         data={algorithms.rotate(input189_nums, input189_k)}
+      />
+      <CardComponent
+        title="189-rotate-优化"
+        data={algorithms.rotate1(input189_nums, input189_k)}
+      />
+      <CardComponent
+        title="238-productExceptSelf"
+        data={algorithms.productExceptSelf(input238)}
       />
     </div>
   )
