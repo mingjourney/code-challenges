@@ -4,7 +4,7 @@ import CardComponent from '../components/CardComponent'
 const CodingBoard = () => {
   const input1 = [1, 2, 3, 4, 6, 2, 5, 1]
   const target1 = 5
-  const string15 = ['dew', 'wed', 'ewf']
+  const input49 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
   const input128 = [100, 4, 200, 1, 3, 2]
   const input283 = [1, 2, 5, 2, 0, 2, 9, 0, 9, 5]
   const input11 = [1, 8, 6, 2, 5, 4, 8, 3, 7]
@@ -37,8 +37,8 @@ const CodingBoard = () => {
         data={algorithms.twoSum(input1, target1)}
       />
       <CardComponent
-        title="15-groupAnagrams"
-        data={algorithms.groupAnagrams(string15)}
+        title="49-groupAnagrams"
+        data={algorithms.groupAnagrams(input49)}
       />
       <CardComponent
         title="128-longesteConsecutive"
@@ -59,8 +59,8 @@ const CodingBoard = () => {
         data={algorithms.twoSum2(input1, target1)}
       />
       <CardComponent
-        title="15-groupAnagrams-2"
-        data={algorithms.groupAnagrams2(string15)}
+        title="49-groupAnagrams-2"
+        data={algorithms.groupAnagrams2(input49)}
       />
       <CardComponent
         title="283-moveZeroes-2"
@@ -115,6 +115,37 @@ const CodingBoard = () => {
         title="238-productExceptSelf"
         data={algorithms.productExceptSelf(input238)}
       />
+      <CardComponent
+        title="160-getIntersectionNode"
+        data={algorithms.getIntersectionNode(null, null)}
+      />
+      <h4>12.20-12.22</h4>
+      <CardComponent
+        title="239-maxSlidingWindow2"
+        data={algorithms.maxSlidingWindow2(input239_nums, input239_k)}
+      />
+      <CardComponent
+        title="1-twoSum-3"
+        data={algorithms.twoSum3(input1, target1)}
+      />
+      <CardComponent
+        title="49-groupAnagrams-3"
+        data={algorithms.groupAnagrams3(input49)}
+      />
+      <CardComponent
+        title="128-longestConsecutive-3"
+        data={algorithms.longestConsecutive3(input128)}
+      />
+      <CardComponent
+        title="283-moveZeroes-3"
+        data={algorithms.moveZeroes4(input283)}
+      />
+      <CardComponent title="11-maxArea-3" data={algorithms.maxArea3(input11)} />
+      <CardComponent
+        title="15-threeSum-3"
+        data={algorithms.threeSum2(input15)}
+      />
+      \
     </div>
   )
 }

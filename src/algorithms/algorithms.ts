@@ -77,7 +77,7 @@ export const maxArea = (nums: Array<number>) => {
   return res
 }
 
-// 128. 最长连续序列
+// 128. 最长连续序列 - 2
 export const longestConsecutive2 = (nums: number[]): number => {
   const s = new Set<number>()
   for (const n of nums) {
@@ -430,5 +430,167 @@ export const productExceptSelf = (nums: number[]): number[] => {
     k *= nums[i]
   }
   console.log('res', res)
+  return res
+}
+class ListNode {
+  val: number
+  next: ListNode | null
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val
+    this.next = next === undefined ? null : next
+  }
+}
+// 160. 相交链表
+export const getIntersectionNode = (
+  headA: ListNode | null,
+  headB: ListNode | null
+): ListNode | null => {
+  const m = new Set()
+  let p = headA
+  while (p) {
+    m.add(p)
+    p = p.next
+  }
+  let q = headB
+  while (q) {
+    if (m.has(q)) {
+      return q
+    }
+    q = q.next
+  }
+  return null
+}
+// 160. 相交链表-优化
+export const getIntersectionNode1 = (
+  headA: ListNode | null,
+  headB: ListNode | null
+): ListNode | null => {
+  let p = headA
+  let q = headB
+  while (p !== q) {
+    p = p === null ? headB : p.next
+    q = q === null ? headA : q.next
+  }
+  return p
+}
+
+// 239.滑动窗口最大值11.12
+export const maxSlidingWindow2 = (nums: number[], k: number): number[] => {
+  const res: number[] = []
+  const q: number[] = []
+  for (let i = 0; i < k; i++) {
+    if (q.length > 0 && nums[q[q.length - 1]] <= nums[i]) {
+      q.pop()
+    }
+    q.push(i)
+  }
+  res.push(nums[q[0]])
+  for (let i = k; i < nums.length; i++) {
+    while (q.length >= 0 && nums[q[q.length - 1]]) {
+      q.pop()
+    }
+    if (q[0] < i - k) {
+      q.shift()
+    }
+    res.push(nums[q[0]])
+  }
+  return res
+}
+//
+export const twoSum3 = (nums: number[], target: number): number[] => {
+  const m = new Map<number, number>()
+  for (let i = 0; i < nums.length; i++) {
+    const need = target - nums[i]
+    if (m.has(need)) {
+      return [m.get(need)!, i]
+    }
+    m.set(nums[i], i)
+  }
+  return []
+}
+// 49.字母异位词分组 3
+export const groupAnagrams3 = (string: string[]): string[][] => {
+  const m = new Map<string, string[]>()
+  for (const str of string) {
+    const sortedStr = [...str].sort().join()
+    if (m.has(sortedStr)) {
+      m.get(sortedStr)!.push(str)
+    } else {
+      m.set(sortedStr, [str])
+    }
+  }
+  return [...m.values()]
+}
+// 128.最长连续序列-3
+export const longestConsecutive3 = (nums: number[]): number => {
+  const s = new Set(nums)
+  let maxLen = 0
+  for (let c of s) {
+    if (!s.has(c - 1)) {
+      let cur = 1
+      while (s.has(++c)) {
+        cur++
+      }
+      maxLen = Math.max(maxLen, cur)
+    }
+  }
+  return maxLen
+}
+// 283.移动零-4
+export const moveZeroes4 = (nums: number[]): number[] => {
+  let k = 0
+  for (const num of nums) {
+    if (num !== 0) {
+      nums[k++] = num
+    }
+  }
+  for (k; k < nums.length; k++) {
+    nums[k] = 0
+  }
+  return nums
+}
+
+// 11.盛最多水的容器-3
+export const maxArea3 = (nums: Array<number>): number => {
+  let left = 0,
+    right = nums.length - 1
+  let max = 0
+  while (left < right) {
+    max =
+      nums[left] < nums[right]
+        ? Math.max(max, nums[left] * (right - left++))
+        : Math.max(max, nums[right] * (right-- - left))
+  }
+  return max
+}
+// 15.三数之和-2 1.14 -> 1.18
+export const threeSum2 = (nums: number[]): number[][] => {
+  const res: number[][] = []
+  nums.sort((a, b) => a - b)
+  for (let i = 0; i < nums.length; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      continue
+    }
+    let left = i + 1,
+      right = nums.length - 1
+    while (left < right) {
+      const sum = nums[left] + nums[right] + nums[i]
+      if (sum === 0) {
+        res.push([nums[i], nums[left], nums[right]])
+        while (left < right && nums[left] === nums[left + 1]) {
+          left++
+        }
+        while (left < right && nums[right] === nums[right - 1]) {
+          right--
+        }
+        left++
+        right--
+      } else if (sum < 0) {
+        left++
+      } else {
+        right--
+      }
+    }
+  }
   return res
 }
