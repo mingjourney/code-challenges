@@ -233,7 +233,7 @@ export const lengthOfLongestSubstring = (s: string): number => {
   }
   return res
 }
-// 438. 找到字符串中所有字母异位词
+// 438. 找到字符串中所有字母异位词（不好）
 export const findAnagrams = (s: string, p: string): number[] => {
   const sLen = s.length,
     pLen = p.length,
@@ -591,6 +591,109 @@ export const threeSum2 = (nums: number[]): number[][] => {
         right--
       }
     }
+  }
+  return res
+}
+// 42.接雨水-2（不好）
+export const trap2 = (height: number[]): number => {
+  const maxRightList = new Array(height.length).fill(0)
+  let maxRight = 0
+  for (let i = height.length - 2; i >= 0; i--) {
+    maxRight = Math.max(maxRight, height[i + 1])
+    maxRightList[i] = maxRight
+  }
+  console.log('maxRightList', maxRightList)
+  let maxLeft = 0,
+    res = 0
+  for (let i = 1; i < height.length - 1; i++) {
+    maxLeft = Math.max(maxLeft, height[i - 1])
+    const minWall = Math.min(maxLeft, maxRightList[i])
+    if (minWall > height[i]) res += minWall - height[i]
+  }
+  return res
+}
+// 42.接雨水-3
+export const trap3 = (height: number[]): number => {
+  let res = 0,
+    maxLeft = 0,
+    maxRight = 0,
+    left = 0,
+    right = height.length - 1
+  while (left < right) {
+    maxLeft = Math.max(maxLeft, height[left])
+    maxRight = Math.max(maxRight, height[right])
+    if (maxLeft < maxRight) {
+      res += maxLeft - height[left]
+      left++
+    } else {
+      res += maxRight - height[right]
+      right--
+    }
+  }
+
+  return res
+}
+// 3.无重复字符的最长子串-2
+export const lengthOfLongestSubstring2 = (s: string): number => {
+  const m = new Set<string>()
+  let left = 0,
+    max = 0
+  for (let right = 0; right < s.length; right++) {
+    while (m.has(s[right])) {
+      m.delete(s[left])
+      left++
+    }
+    if (!m.has(s[right])) {
+      m.add(s[right])
+      max = Math.max(max, right - left + 1)
+    }
+  }
+  return max
+}
+// 3.无重复字符的最长子串-3
+export const lengthOfLongestSubstring3 = (s: string): number => {
+  let maxStr = '',
+    maxLen = 0
+  for (const c of s) {
+    const repeatIndex = maxStr.indexOf(c)
+    if (repeatIndex < 0) {
+      maxStr += c
+    } else {
+      maxLen = Math.max(maxLen, maxStr.length)
+      maxStr = maxStr.slice(repeatIndex + 1) + c
+    }
+  }
+  maxLen = Math.max(maxLen, maxStr.length)
+  return maxLen
+}
+// 438. 找到字符串中所有字母异位词
+export const findAnagrams2 = (s: string, p: string): number[] => {
+  const m = new Array(26).fill(0)
+  const res: number[] = []
+  for (const c of p) {
+    m[c.charCodeAt(0) - 'a'.charCodeAt(0)]++
+  }
+  for (let l = 0, r = 0; r < s.length; r++) {
+    m[s[r].charCodeAt(0) - 'a'.charCodeAt(0)]--
+    while (m[s[r].charCodeAt(0) - 'a'.charCodeAt(0)] < 0) {
+      m[s[l].charCodeAt(0) - 'a'.charCodeAt(0)]++
+      l++
+    }
+    if (r - l + 1 === p.length) {
+      res.push(l)
+    }
+  }
+  return res
+}
+// 560.和为 K 的子数组-3
+export const subarraySum3 = (nums: number[], k: number): number => {
+  const m = new Map([[0, 1]])
+  let res = 0,
+    sum = 0
+  for (const num of nums) {
+    sum += num
+    m.set(sum, (m.has(sum) ? m.get(sum)! : 0) + 1)
+    res += m.has(sum - k) ? m.get(sum - k)! : 0
   }
   return res
 }

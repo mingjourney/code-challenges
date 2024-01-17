@@ -1,3 +1,4 @@
+import { Space } from 'antd'
 import * as algorithms from '../algorithms/algorithms'
 import CardComponent from '../components/CardComponent'
 // import * as handShredded from '@/components/handShredded/handShredded'
@@ -32,120 +33,157 @@ const CodingBoard = () => {
   return (
     <div style={{ padding: '10px' }}>
       <h4>11.6-11.13</h4>
-      <CardComponent
-        title="1-twoSum"
-        data={algorithms.twoSum(input1, target1)}
-      />
-      <CardComponent
-        title="49-groupAnagrams"
-        data={algorithms.groupAnagrams(input49)}
-      />
-      <CardComponent
-        title="128-longesteConsecutive"
-        data={algorithms.longestConsecutive1(input128)}
-      />
-      <CardComponent
-        title="283-moveZeroes"
-        data={algorithms.moveZeroes(input283)}
-      />
-      <CardComponent title="11-maxArea" data={algorithms.maxArea(input11)} />
+      <Space>
+        <CardComponent
+          title="1-twoSum"
+          data={algorithms.twoSum(input1, target1)}
+        />
+        <CardComponent
+          title="49-groupAnagrams"
+          data={algorithms.groupAnagrams(input49)}
+        />
+        <CardComponent
+          title="128-longesteConsecutive"
+          data={algorithms.longestConsecutive1(input128)}
+        />
+        <CardComponent
+          title="283-moveZeroes"
+          data={algorithms.moveZeroes(input283)}
+        />
+        <CardComponent title="11-maxArea" data={algorithms.maxArea(input11)} />
+      </Space>
       <h4>12.20-12.22</h4>
-      <CardComponent
-        title="128-longestConsecutive-2"
-        data={algorithms.longestConsecutive2(input128)}
-      />
-      <CardComponent
-        title="1-twoSum-2"
-        data={algorithms.twoSum2(input1, target1)}
-      />
-      <CardComponent
-        title="49-groupAnagrams-2"
-        data={algorithms.groupAnagrams2(input49)}
-      />
-      <CardComponent
-        title="283-moveZeroes-2"
-        data={algorithms.moveZeroes2(input283)}
-      />
-      <CardComponent
-        title="283-moveZeroes-3"
-        data={algorithms.moveZeroes3(input283)}
-      />
-      <CardComponent title="11-maxArea-2" data={algorithms.maxArea2(input11)} />
-      <CardComponent title="15-threeSum" data={algorithms.threeSum(input15)} />
-      <CardComponent title="42-trap" data={algorithms.trap(input42)} />
-      <CardComponent
-        title="3-lengthOfLongestSubstring"
-        data={algorithms.lengthOfLongestSubstring(input3)}
-      />
-      <CardComponent
-        title="438-findAnagrams"
-        data={algorithms.findAnagrams(input438_s, input438_p)}
-      />
-      <CardComponent
-        title="560-subarraySum"
-        data={algorithms.subarraySum(input560_nums, input560_k)}
-      />
+      <Space>
+        <CardComponent
+          title="128-longestConsecutive-2"
+          data={algorithms.longestConsecutive2(input128)}
+        />
+        <CardComponent
+          title="1-twoSum-2"
+          data={algorithms.twoSum2(input1, target1)}
+        />
+        <CardComponent
+          title="49-groupAnagrams-2"
+          data={algorithms.groupAnagrams2(input49)}
+        />
+        <CardComponent
+          title="283-moveZeroes-2"
+          data={algorithms.moveZeroes2(input283)}
+        />
+        <CardComponent
+          title="283-moveZeroes-3"
+          data={algorithms.moveZeroes3(input283)}
+        />
+        <CardComponent
+          title="11-maxArea-2"
+          data={algorithms.maxArea2(input11)}
+        />
+        <CardComponent
+          title="15-threeSum"
+          data={algorithms.threeSum(input15)}
+        />
+        <CardComponent title="42-trap" data={algorithms.trap(input42)} />
+        <CardComponent
+          title="3-lengthOfLongestSubstring"
+          data={algorithms.lengthOfLongestSubstring(input3)}
+        />
+        <CardComponent
+          title="438-findAnagrams"
+          data={algorithms.findAnagrams(input438_s, input438_p)}
+        />
+        <CardComponent
+          title="560-subarraySum"
+          data={algorithms.subarraySum(input560_nums, input560_k)}
+        />
+      </Space>
+
       <h4>1.1-1.7</h4>
-      <CardComponent
-        title="239-maxSlidingWindow(1.3 -> 1.7)"
-        data={algorithms.maxSlidingWindow(input239_nums, input239_k)}
-      />
-      <CardComponent
-        title="560-subarraySum-2(1.3 -> 1.7)"
-        data={algorithms.subarraySum2(input560_nums, input560_k)}
-      />
-      <CardComponent
-        title="76-minWindow(待解决)"
-        data={algorithms.minWindow(input76_s, input76_t)}
-      />
-      <CardComponent
-        title="53-minWindow(1.3 -> 1.7)"
-        data={algorithms.maxSubArray(input53)}
-      />
-      <CardComponent title="56-merge" data={algorithms.merge(input56)} />
-      <CardComponent
-        title="189-rotate"
-        data={algorithms.rotate(input189_nums, input189_k)}
-      />
-      <CardComponent
-        title="189-rotate-优化"
-        data={algorithms.rotate1(input189_nums, input189_k)}
-      />
-      <CardComponent
-        title="238-productExceptSelf"
-        data={algorithms.productExceptSelf(input238)}
-      />
-      <CardComponent
-        title="160-getIntersectionNode"
-        data={algorithms.getIntersectionNode(null, null)}
-      />
-      <h4>12.20-12.22</h4>
-      <CardComponent
-        title="239-maxSlidingWindow2"
-        data={algorithms.maxSlidingWindow2(input239_nums, input239_k)}
-      />
-      <CardComponent
-        title="1-twoSum-3"
-        data={algorithms.twoSum3(input1, target1)}
-      />
-      <CardComponent
-        title="49-groupAnagrams-3"
-        data={algorithms.groupAnagrams3(input49)}
-      />
-      <CardComponent
-        title="128-longestConsecutive-3"
-        data={algorithms.longestConsecutive3(input128)}
-      />
-      <CardComponent
-        title="283-moveZeroes-3"
-        data={algorithms.moveZeroes4(input283)}
-      />
-      <CardComponent title="11-maxArea-3" data={algorithms.maxArea3(input11)} />
-      <CardComponent
-        title="15-threeSum-3"
-        data={algorithms.threeSum2(input15)}
-      />
-      \
+      <Space>
+        <CardComponent
+          title="239-maxSlidingWindow(1.3 -> 1.7)"
+          data={algorithms.maxSlidingWindow(input239_nums, input239_k)}
+        />
+        <CardComponent
+          title="560-subarraySum-2(1.3 -> 1.7)"
+          data={algorithms.subarraySum2(input560_nums, input560_k)}
+        />
+        <CardComponent
+          title="76-minWindow(待解决)"
+          data={algorithms.minWindow(input76_s, input76_t)}
+        />
+        <CardComponent
+          title="53-minWindow(1.3 -> 1.7)"
+          data={algorithms.maxSubArray(input53)}
+        />
+        <CardComponent title="56-merge" data={algorithms.merge(input56)} />
+        <CardComponent
+          title="189-rotate"
+          data={algorithms.rotate(input189_nums, input189_k)}
+        />
+        <CardComponent
+          title="189-rotate-优化"
+          data={algorithms.rotate1(input189_nums, input189_k)}
+        />
+        <CardComponent
+          title="238-productExceptSelf"
+          data={algorithms.productExceptSelf(input238)}
+        />
+        <CardComponent
+          title="160-getIntersectionNode"
+          data={algorithms.getIntersectionNode(null, null)}
+        />
+      </Space>
+      <h4>1.13-1.16</h4>
+      <Space>
+        <CardComponent
+          title="239-maxSlidingWindow2"
+          data={algorithms.maxSlidingWindow2(input239_nums, input239_k)}
+        />
+        <CardComponent
+          title="1-twoSum-3"
+          data={algorithms.twoSum3(input1, target1)}
+        />
+        <CardComponent
+          title="49-groupAnagrams-3"
+          data={algorithms.groupAnagrams3(input49)}
+        />
+        <CardComponent
+          title="128-longestConsecutive-3"
+          data={algorithms.longestConsecutive3(input128)}
+        />
+        <CardComponent
+          title="283-moveZeroes-3"
+          data={algorithms.moveZeroes4(input283)}
+        />
+        <CardComponent
+          title="11-maxArea-3"
+          data={algorithms.maxArea3(input11)}
+        />
+        <CardComponent
+          title="15-threeSum-3"
+          data={algorithms.threeSum2(input15)}
+        />
+        <CardComponent title="42-trap-2" data={algorithms.trap2(input42)} />
+        <CardComponent
+          title="3-lengthOfLongestSubstring-2"
+          data={algorithms.lengthOfLongestSubstring2(input3)}
+        />
+        <CardComponent
+          title="3-lengthOfLongestSubstring-3"
+          data={algorithms.lengthOfLongestSubstring3(input3)}
+        />
+      </Space>
+      <h4>1.17-1.20</h4>
+      <Space>
+        <CardComponent
+          title="438-findAnagrams-2"
+          data={algorithms.findAnagrams2(input438_s, input438_p)}
+        />
+        <CardComponent
+          title="560-subarraySum-3"
+          data={algorithms.subarraySum3(input560_nums, input560_k)}
+        />
+      </Space>
     </div>
   )
 }

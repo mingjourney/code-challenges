@@ -1,3 +1,4 @@
+import { Flex, Spin } from 'antd'
 import React, { lazy } from 'react'
 // import Home from '../views/Home'
 // import About from '../views/About'
@@ -7,7 +8,15 @@ const OnlineThreeDClassroom = lazy(
 const Home = lazy(() => import('../views/Home'))
 //路由新写法
 const withLoadingComponent = (comp: JSX.Element) => (
-  <React.Suspense fallback={<div>loading...</div>}>{comp}</React.Suspense>
+  <React.Suspense
+    fallback={
+      <Flex align="center" gap="middle">
+        <Spin />
+      </Flex>
+    }
+  >
+    {comp}
+  </React.Suspense>
 )
 const routes = [
   {
