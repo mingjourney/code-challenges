@@ -27,6 +27,12 @@ const CodingBoard = () => {
     [8, 10],
     [15, 18]
   ]
+  const input56_2 = [
+    [1, 3],
+    [2, 6],
+    [8, 10],
+    [15, 18]
+  ]
   const input189_nums = [1, 2, 3, 4, 5, 6, 7]
   const input189_k = 3
   const input238 = [1, 2, 3, 4]
@@ -112,7 +118,7 @@ const CodingBoard = () => {
           data={algorithms.minWindow(input76_s, input76_t)}
         />
         <CardComponent
-          title="53-minWindow(1.3 -> 1.7)"
+          title="53-maxSubArray(1.3 -> 1.7)"
           data={algorithms.maxSubArray(input53)}
         />
         <CardComponent title="56-merge" data={algorithms.merge(input56)} />
@@ -182,6 +188,23 @@ const CodingBoard = () => {
         <CardComponent
           title="560-subarraySum-3"
           data={algorithms.subarraySum3(input560_nums, input560_k)}
+        />
+        <CardComponent
+          title="53-maxSubArray2(1.18 -> 1.22)"
+          data={algorithms.maxSubArray2(input53)}
+        />
+        <CardComponent title="56-merge-2" data={algorithms.merge2(input56_2)} />
+        <CardComponent
+          title="189-rotate-2.1"
+          data={algorithms.rotate2(input189_nums, input189_k)}
+        />
+        <CardComponent
+          title="189-rotate-2.2"
+          data={algorithms.rotate3(input189_nums, input189_k)}
+        />
+        <CardComponent
+          title="238-productExceptSelf"
+          data={algorithms.productExceptSelf2(input238)}
         />
       </Space>
     </div>

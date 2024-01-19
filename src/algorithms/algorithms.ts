@@ -496,7 +496,6 @@ export const maxSlidingWindow2 = (nums: number[], k: number): number[] => {
   }
   return res
 }
-//
 export const twoSum3 = (nums: number[], target: number): number[] => {
   const m = new Map<number, number>()
   for (let i = 0; i < nums.length; i++) {
@@ -694,6 +693,72 @@ export const subarraySum3 = (nums: number[], k: number): number => {
     sum += num
     m.set(sum, (m.has(sum) ? m.get(sum)! : 0) + 1)
     res += m.has(sum - k) ? m.get(sum - k)! : 0
+  }
+  return res
+}
+// 53. 最大子数组和-2
+export const maxSubArray2 = (nums: number[]): number => {
+  let pre = 0,
+    max = -Infinity
+  for (const num of nums) {
+    if (pre < 0) {
+      pre = 0
+    }
+    pre = num + pre
+    max = Math.max(pre, max)
+  }
+  return max
+}
+// 56. 合并区间-2
+export const merge2 = (intervals: number[][]): number[][] => {
+  if (intervals.length === 0) return []
+  intervals.sort((a, b) => a[0] - b[0])
+  let cur = intervals[0]
+  const res: number[][] = []
+  res.push(intervals[0])
+  for (let i = 1; i < intervals.length; i++) {
+    if (intervals[i][0] <= cur[1]) {
+      cur[1] = Math.max(cur[1], intervals[i][1])
+    } else {
+      res.push(intervals[i])
+      cur = intervals[i]
+    }
+  }
+  return res
+}
+// 189. 轮转数组
+export const rotate2 = (nums: number[], k: number) => {
+  const rk = k % nums.length
+  const tmp = nums.slice(0, nums.length - rk)
+  nums.splice(nums.length - rk)
+  nums.unshift(...tmp)
+}
+const myReverse = (nums: number[], start: number, end: number) => {
+  while (start < end) {
+    const tmp = nums[start]
+    nums[start] = nums[end]
+    nums[end] = tmp
+    start++
+    end--
+  }
+}
+export const rotate3 = (nums: number[], k: number) => {
+  const rk = k % nums.length
+  myReverse(nums, 0, nums.length - 1)
+  myReverse(nums, 0, rk - 1)
+  myReverse(nums, rk, nums.length - 1)
+}
+// 238. 除自身以外数组的乘积-2
+export const productExceptSelf2 = (nums: number[]): number[] => {
+  const len = nums.length
+  const res = new Array(len)
+  res[0] = nums[0]
+  res[len] = nums[len]
+  for (let i = 1; i < len; i++) {
+    res[i] *= res[i - 1]
+  }
+  for (let j = nums.length - 2; j >= 0; j--) {
+    res[j] *= res[j + 1]
   }
   return res
 }
