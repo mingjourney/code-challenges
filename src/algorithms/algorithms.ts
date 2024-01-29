@@ -762,3 +762,181 @@ export const productExceptSelf2 = (nums: number[]): number[] => {
   }
   return res
 }
+// 160. 相交链表-2 未运行
+export const getIntersectionNode2 = (
+  headA: ListNode | null,
+  headB: ListNode | null
+): ListNode | null => {
+  let p = headA
+  let q = headB
+  while (p !== q) {
+    p = p === null ? headB : p.next
+    q = q === null ? headA : q.next
+  }
+  return p
+}
+//206. 反转链表-2 未运行
+export const reverseList = (head: ListNode | null): ListNode | null => {
+  let pre = null
+  let cur = head
+  while (cur) {
+    const next = cur.next
+    cur.next = pre
+    pre = cur
+    cur = next
+  }
+  return pre
+}
+// 234. 回文链表
+export const isPalindrome = (head: ListNode | null): boolean => {
+  const arr = []
+  while (head) {
+    arr.push(head.val)
+    head = head.next
+  }
+  const len = arr.length
+  for (let i = 0, j = len - 1; i < j; i++, j--) {
+    if (arr[i] !== arr[j]) {
+      return false
+    }
+  }
+  return true
+}
+// 141. 环形链表
+export const hasCycle = (head: ListNode | null): boolean => {
+  const m = new Set()
+  if (!head) {
+    return false
+  }
+  while (head) {
+    if (m.has(head)) {
+      return true
+    } else {
+      m.add(head)
+      head = head.next
+    }
+  }
+  return false
+}
+// 94. 二叉树的中序遍历
+export const inorderTraversal = (root: TreeNode | null): number[] => {
+  const res: number[] = []
+  const inorder = (root: TreeNode | null) => {
+    if (!root) {
+      return
+    }
+    inorder(root.left)
+    res.push(root.val)
+    inorder(root.right)
+  }
+  inorder(root)
+  return res
+}
+// 104. 二叉树的最大深度
+export const maxDepth = (root: TreeNode | null): number => {
+  if (!root) {
+    return 0
+  }
+  return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+}
+// 226. 翻转二叉树
+export const invertTree = (root: TreeNode | null): TreeNode | null => {
+  if (!root) {
+    return null
+  }
+  const left = invertTree(root.left)
+  const right = invertTree(root.right)
+  root.left = right
+  root.right = left
+  return root
+}
+class TreeNode {
+  val: number
+  left: TreeNode | null
+  right: TreeNode | null
+  constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {
+    this.val = val === undefined ? 0 : val
+    this.left = left === undefined ? null : left
+    this.right = right === undefined ? null : right
+  }
+}
+// 101. 对称二叉树
+export const isSymmetric = (root: TreeNode | null): boolean => {
+  const check = (p: TreeNode | null, q: TreeNode | null) => {
+    if (!q && !p) {
+      return true
+    }
+    if (!q || !p) {
+      return false
+    }
+    if (p.val === q.val && check(p.left, q.right) && check(p.right, q.left)) {
+      return true
+    }
+  }
+  if (!root) {
+    return false
+  }
+  return check(root.left, root.right)!
+}
+// 543. 二叉树的直径
+export const diameterOfBinaryTree = (root: TreeNode | null) => {
+  let maxRouteLength = 1
+  const depth = (root: TreeNode | null): number => {
+    if (!root) {
+      return 0
+    }
+    const L = depth(root.left)
+    const R = depth(root.right)
+    maxRouteLength = Math.max(maxRouteLength, L + R + 1)
+    return Math.max(L, R) + 1
+  }
+  depth(root)
+  return maxRouteLength - 1
+}
+export const levelOrder = (root: TreeNode | null): number[][] => {
+  const res: number[][] = []
+
+  const levelPush = (node: TreeNode | null, depth: number) => {
+    if (!node) return
+
+    res[depth] = res[depth] || []
+    res[depth].push(node.val)
+
+    levelPush(node.left, depth + 1)
+    levelPush(node.right, depth + 1)
+  }
+
+  levelPush(root, 0)
+  return res
+}
+// 15.三数之和-3 1.27 -> 1.30
+export const threeSum3 = (nums: number[]): number[][] => {
+  nums.sort((a, b) => a - b)
+  const res = []
+  for (let i = 0; i < nums.length; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) {
+      continue
+    }
+    let l = i + 1
+    let r = nums.length - 1
+    while (l < r) {
+      const sum = nums[l] + nums[r] + nums[i]
+      if (sum === 0) {
+        res.push([nums[i], nums[l], nums[r]])
+        while (l < r && nums[l] === nums[l + 1]) {
+          l++
+        }
+        while (l < r && nums[r] === nums[r - 1]) {
+          r--
+        }
+        l++
+        r--
+      } else if (sum < 0) {
+        l++
+      } else {
+        r--
+      }
+    }
+  }
+  return res
+}

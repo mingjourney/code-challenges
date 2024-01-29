@@ -1,0 +1,56 @@
+.content {
+  display: flex;
+  aspect-ratio: 1;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+  position: relative;
+}
+.triangle-container {
+  background-color: gray;
+  aspect-ratio: 1;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.triangle::before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 100px solid transparent;
+  border-top: 100px solid blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.icon {
+  width: 30px; 
+  height: 30px; 
+  background-color: red; 
+  position: absolute;
+  top: 30%; 
+  left: 30%; 
+  transform: translate(-50%, -50%); 
+}
+.center {
+  background-color: brown;
+  aspect-ratio: 1;
+  height: 40px;
+}
+.week-container{
+  padding:5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+h4 {
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px;
+  display: inline-block;
+  margin: 5px 0;
+}

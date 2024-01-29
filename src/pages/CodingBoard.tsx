@@ -1,6 +1,7 @@
-import { Space } from 'antd'
 import * as algorithms from '../algorithms/algorithms'
 import CardComponent from '../components/CardComponent'
+import './CodingBoard.css'
+// import TrangleLeftTop from '@/components/TrangleLeftTop'
 // import * as handShredded from '@/components/handShredded/handShredded'
 const CodingBoard = () => {
   const input1 = [1, 2, 3, 4, 6, 2, 5, 1]
@@ -39,7 +40,7 @@ const CodingBoard = () => {
   return (
     <div style={{ padding: '10px' }}>
       <h4>11.6-11.13</h4>
-      <Space>
+      <div className="week-container">
         <CardComponent
           title="1-twoSum"
           data={algorithms.twoSum(input1, target1)}
@@ -57,9 +58,9 @@ const CodingBoard = () => {
           data={algorithms.moveZeroes(input283)}
         />
         <CardComponent title="11-maxArea" data={algorithms.maxArea(input11)} />
-      </Space>
+      </div>
       <h4>12.20-12.22</h4>
-      <Space>
+      <div className="week-container">
         <CardComponent
           title="128-longestConsecutive-2"
           data={algorithms.longestConsecutive2(input128)}
@@ -101,10 +102,10 @@ const CodingBoard = () => {
           title="560-subarraySum"
           data={algorithms.subarraySum(input560_nums, input560_k)}
         />
-      </Space>
+      </div>
 
       <h4>1.1-1.7</h4>
-      <Space>
+      <div className="week-container">
         <CardComponent
           title="239-maxSlidingWindow(1.3 -> 1.7)"
           data={algorithms.maxSlidingWindow(input239_nums, input239_k)}
@@ -138,9 +139,9 @@ const CodingBoard = () => {
           title="160-getIntersectionNode"
           data={algorithms.getIntersectionNode(null, null)}
         />
-      </Space>
+      </div>
       <h4>1.13-1.16</h4>
-      <Space>
+      <div className="week-container">
         <CardComponent
           title="239-maxSlidingWindow2"
           data={algorithms.maxSlidingWindow2(input239_nums, input239_k)}
@@ -166,7 +167,7 @@ const CodingBoard = () => {
           data={algorithms.maxArea3(input11)}
         />
         <CardComponent
-          title="15-threeSum-3"
+          title="15-threeSum-2"
           data={algorithms.threeSum2(input15)}
         />
         <CardComponent title="42-trap-2" data={algorithms.trap2(input42)} />
@@ -178,9 +179,9 @@ const CodingBoard = () => {
           title="3-lengthOfLongestSubstring-3"
           data={algorithms.lengthOfLongestSubstring3(input3)}
         />
-      </Space>
+      </div>
       <h4>1.17-1.20</h4>
-      <Space>
+      <div className="week-container">
         <CardComponent
           title="438-findAnagrams-2"
           data={algorithms.findAnagrams2(input438_s, input438_p)}
@@ -206,7 +207,25 @@ const CodingBoard = () => {
           title="238-productExceptSelf"
           data={algorithms.productExceptSelf2(input238)}
         />
-      </Space>
+      </div>
+      <h4>1.22-1.30</h4>
+      <div className="week-container">
+        <CardComponent title="160-productExceptSelf" data="未运行" />
+        <CardComponent title="206-reverseList" data="未运行" />
+        <CardComponent title="234-isPalindrome" data="未运行" />
+        <CardComponent title="141-hasCycle" data="未运行" />
+        <CardComponent title="94-inorderTraversal" data="未运行" />
+        <CardComponent title="104-maxDepth" data="未运行" />
+        <CardComponent title="226-invertTree" data="未运行" />
+        <CardComponent title="101-isSymmetric" data="未运行" />
+        <CardComponent title="543-diameterOfBinaryTree" data="未运行" />
+        <CardComponent title="102-levelOrder" data="未运行" />
+        <CardComponent
+          title="15-threeSum-3"
+          data={algorithms.threeSum3(input15)}
+        />
+      </div>
+      {/* <TrangleLeftTop /> */}
     </div>
   )
 }
