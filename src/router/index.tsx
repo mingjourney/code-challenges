@@ -2,8 +2,8 @@ import { Flex, Spin } from 'antd'
 import React, { lazy } from 'react'
 // import Home from '../views/Home'
 // import About from '../views/About'
-const OnlineThreeDClassroom = lazy(
-  () => import('../views/OnlineThreeDClassroom')
+const VirtualScroll = lazy(
+  () => import('@/components/virtualScroll/virtualScroll')
 )
 const Home = lazy(() => import('../views/Home'))
 //路由新写法
@@ -28,8 +28,8 @@ const routes = [
     element: withLoadingComponent(<Home />)
   },
   {
-    path: '/online3d',
-    element: withLoadingComponent(<OnlineThreeDClassroom />)
+    path: '/virtualScroll',
+    element: withLoadingComponent(<VirtualScroll />)
   }
 ]
 export default routes
