@@ -940,3 +940,13 @@ export const threeSum3 = (nums: number[]): number[][] => {
   }
   return res
 }
+// 70. 爬楼梯
+export const climbStairs = (n: number): number => {
+  const dp = []
+  dp[0] = 1
+  dp[1] = 1
+  for (let i = 2; i <= n; i++) {
+    dp[i] = dp[i - 1] + dp[i - 2]
+  }
+  return dp[n]
+}
