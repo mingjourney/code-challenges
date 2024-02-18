@@ -37,6 +37,7 @@ const CodingBoard = () => {
   const input189_nums = [1, 2, 3, 4, 5, 6, 7]
   const input189_k = 3
   const input238 = [1, 2, 3, 4]
+  const input118 = 5
   return (
     <div style={{ padding: '10px' }}>
       <h4>11.6-11.13</h4>
@@ -223,6 +224,10 @@ const CodingBoard = () => {
         <CardComponent
           title="15-threeSum-3"
           data={algorithms.threeSum3(input15)}
+        />
+        <CardComponent
+          title="118-generate"
+          data={algorithms.generate(input118)}
         />
       </div>
       {/* <TrangleLeftTop /> */}

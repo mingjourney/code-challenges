@@ -950,3 +950,15 @@ export const climbStairs = (n: number): number => {
   }
   return dp[n]
 }
+// 118. 杨辉三角
+export const generate = (numRows: number): number[][] => {
+  const res = []
+  for (let i = 0; i < numRows; i++) {
+    const lineArr = Array(i + 1).fill(1)
+    for (let j = 1; j < lineArr.length - 1; j++) {
+      lineArr[j] = res[i - 1][j - 1] + res[i - 1][j]
+    }
+    res.push(lineArr)
+  }
+  return res
+}
