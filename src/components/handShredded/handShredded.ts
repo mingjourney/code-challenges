@@ -90,37 +90,52 @@ export const vueRectiveTest = () => {
 //   return false
 // }
 // console.log('结果', myInstanceof([], Number))
-export const myInstanceof = (left: any, right: any) => {
-  return Object.getPrototypeOf(left) === right.prototype
-}
+// export const myInstanceof = (left: any, right: any) => {
+//   return Object.getPrototypeOf(left) === right.prototype
+// }
 
-const a = {
-  name: 'aaaaaaaa',
-  showName(age: number, sex: string) {
-    console.log('name是', this.name, 'age是', age, 'sex是', sex)
+// const a = {
+//   name: 'aaaaaaaa',
+//   showName(age: number, sex: string) {
+//     console.log('name是', this.name, 'age是', age, 'sex是', sex)
+//   }
+// }
+// a.showName(13, '男')
+// const b = {
+//   name: 'bbbbbbbb'
+// }
+// // a.showName.call(b, 88, '女')
+// Function.prototype.myCall = function (obj, ...rest) {
+//   obj = obj || window
+//   const fn = Symbol()
+//   obj[fn] = this
+//   const res = obj[fn](...rest)
+//   delete obj.fn
+//   return res
+// }
+
+// Function.prototype.myApply = function (obj, arr) {
+//   obj = obj || window
+//   const fn = Symbol()
+//   obj[fn] = this
+//   const res = obj[fn](...arr)
+//   delete obj[fn]
+//   return res
+// }
+// a.showName.myCall(b, 1, '男2')
+// a.showName.myApply(b, [100, '男3'])
+export const myDeepClone = (obj: any, hash = new WeakMap()) => {
+  if (obj === null || typeof obj !== 'object') return obj
+  if (obj instanceof Date) return new Date(obj)
+  if (obj instanceof RegExp) return new RegExp(obj)
+  if (hash.has(obj)) return hash.get(obj)
+  const cloneObj = new obj.constructor()
+  hash.set(obj, cloneObj)
+  for (const key in obj) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (obj.hasOwnProperty(key)) {
+      cloneObj[key] = myDeepClone(obj[key], hash)
+    }
   }
+  return cloneObj
 }
-a.showName(13, '男')
-const b = {
-  name: 'bbbbbbbb'
-}
-// a.showName.call(b, 88, '女')
-Function.prototype.myCall = function (obj, ...rest) {
-  obj = obj || window
-  const fn = Symbol()
-  obj[fn] = this
-  const res = obj[fn](...rest)
-  delete obj.fn
-  return res
-}
-
-Function.prototype.myApply = function (obj, arr) {
-  obj = obj || window
-  const fn = Symbol()
-  obj[fn] = this
-  const res = obj[fn](...arr)
-  delete obj[fn]
-  return res
-}
-a.showName.myCall(b, 1, '男2')
-a.showName.myApply(b, [100, '男3'])

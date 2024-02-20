@@ -962,3 +962,22 @@ export const generate = (numRows: number): number[][] => {
   }
   return res
 }
+// 4.无重复字符的最长子串-5
+export const lengthOfLongestSubstring4 = (s: string): number => {
+  const set_s = new Set<string>()
+  let max = 0
+  let l = 0
+  let r = 0
+  while (r < s.length) {
+    while (set_s.has(s[r])) {
+      set_s.delete(s[l])
+      l++
+    }
+    if (!set_s.has(s[r])) {
+      set_s.add(s[r])
+      max = Math.max(r - l + 1, max)
+      r++
+    }
+  }
+  return max
+}
