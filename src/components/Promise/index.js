@@ -88,7 +88,7 @@
 
 // Promise.all([p1, p2, p3]).catch((error) => console.log(error))
 // 输出 "Error!"，并且不会等待 p3 的结果
-import MyPromise from './MyPromiseAgain.js'
+// import MyPromise from './MyPromiseAgain.js'
 // const p = new MyPromise((resolve, reject) => {
 //   setTimeout(() => {
 //     resolve('success')
@@ -170,11 +170,66 @@ import MyPromise from './MyPromiseAgain.js'
 // MyPromise.resolve().then((resolve, reject) => {
 //   resolve(1)
 // })
-MyPromise.resolve()
-  .then(() => {
-    console.log(0)
-    return MyPromise.resolve(4)
+// MyPromise.resolve()
+//   .then(() => {
+//     console.log(0)
+//     return MyPromise.resolve(4)
+//   })
+//   .then((res) => {
+//     console.log(res)
+//   })
+// const p1 = Promise.resolve('p1')
+
+// const p2 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     console.log('p2 延时一秒')
+//     resolve('p2 延时一秒')
+//   }, 1000)
+// })
+
+// const p3 = new Promise((resolve) => {
+//   setTimeout(() => {
+//     console.log('p3 延时两秒')
+//     resolve('p3 延时两秒')
+//   }, 2000)
+// })
+
+// const p4 = Promise.reject('p4 rejected')
+
+// const p5 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     console.log('p5 rejected 延时1.5秒')
+//     reject('p5 rejected 延时1.5秒')
+//   }, 1500)
+// })
+
+// Promise.all([p2, p4, p5])
+//   .then((res) => {
+//     console.log(res)
+//   })
+//   .catch((error) => console.log('all error', error))
+Promise.myPromiseAll = function (promises) {
+  const res = []
+  let count = 0
+  return new Promise((resolve, reject) => {
+    promises.forEach((promise, index) => {
+      Promise.resolve(promise)
+        .then((result) => {
+          res[index] = result
+          count += 1
+          if (count === promises.length) resolve(res)
+        })
+        .catch(reject)
+    })
   })
-  .then((res) => {
-    console.log(res)
+}
+Promise.myPromiseAll([p4, p1, p2, p3])
+  .then((res) => console.log('all', res))
+  .catch((error) => console.log('allerror', error))
+Promise.myRace = function (promises) {
+  return new Promise((resolve, reject) => {
+    promises.forEach((promise) => {
+      Promise.resolve(promise).then(resolve, reject)
+    })
   })
+}
